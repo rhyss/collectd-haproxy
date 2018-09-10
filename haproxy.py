@@ -147,7 +147,7 @@ class HAProxySocket(object):
             return stat_sock
         else:
             socket_host, separator, port = self.socket_file.rpartition(':')
-            if socket_host is not '' and port is not '' and separator is ':':
+            if socket_host != '' and port != '' and separator == ':':
                 stat_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 stat_sock.connect((socket_host, int(port)))
                 return stat_sock
