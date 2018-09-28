@@ -291,7 +291,7 @@ def config(config_values):
 
     for node in config_values.children:
         if node.key == "ProxyMonitor" and node.values[0]:
-            proxy_monitors.append(node.values[0])
+            proxy_monitors.extend(node.values)
         elif node.key == "Socket" and node.values[0]:
             socket = node.values[0]
         elif node.key == "Interval" and node.values[0]:
