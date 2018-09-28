@@ -229,8 +229,8 @@ def get_stats(module_config):
     # proxy specific stats
     for statdict in server_stats:
         dimensions = _build_dimension_dict(statdict)
-        if not (statdict['svname'].lower() in module_config['proxy_monitors'] or
-                statdict['pxname'].lower() in module_config['proxy_monitors']):
+        if not (('svname' in statdict and statdict['svname'].lower() in module_config['proxy_monitors']) or
+                ('pxname' in statdict and statdict['pxname'].lower() in module_config['proxy_monitors'])):
             continue
         for metricname, val in statdict.items():
             try:
